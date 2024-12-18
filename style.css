@@ -7,14 +7,22 @@
 
 html,
 body {
-  width: 100%;
-  overflow-x: hidden;
+  height: 100%; /* Full viewport height */
+  margin: 0; /* Remove any default margin */
 }
 
+/* Make body a flex container */
 body {
-  font-family: "Times New Roman", Times, serif;
+  display: flex;
+  flex-direction: column;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   line-height: 1.6;
   color: #333;
+}
+
+/* Main content will expand to push the footer down */
+main {
+  flex: 1; /* Take up all available space */
 }
 
 /* Header Section */
@@ -32,6 +40,89 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+}
+/* Dropdown Menu Styling */
+.dropdown {
+  position: relative;
+}
+
+.dropdown > a {
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  gap: 5px; /* Space between text and dropdown icon */
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.dropdown > a:hover {
+  color: #3f87a6; /* Highlight color on hover */
+}
+
+/* Dropdown Icon */
+.dropdown-icon {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: linear-gradient(to bottom, #3f87a6, #7ec8e3); /* Gradient */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  min-width: 250px;
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 8px 15px; /* Smaller padding */
+  color: #fff;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-decoration: none;
+  font-size: 0.9rem; /* Smaller font size */
+  font-weight: 500;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  background: #7ec8e3; /* Highlight background */
+  color: #333; /* Dark text for contrast */
+  border-radius: 5px; /* Rounded corners on hover */
+}
+
+/* Show Dropdown on Click */
+.dropdown-menu.show {
+  display: block;
+}
+
+/* Responsive: Adjust dropdown for smaller screens */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: #7ec8e3; /* Solid background for smaller screens */
+    border-radius: 0;
+  }
+
+  .dropdown-menu a {
+    font-size: 1rem; /* Slightly larger text for small screens */
+  }
 }
 
 /* Logo Container */
@@ -114,28 +205,72 @@ body {
     background: #003366;
   }
 }
-
-/* Carousel */
-.carousel {
-  position: relative;
-  overflow: hidden;
-  margin: 20px auto;
-  width: 90%;
-  height: 400px;
-  background-color: #ddd;
-}
-
-.carousel-container {
+/* Image and Content Section */
+.image-content-section {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  background: #f8f9fa; /* Light background color */
 }
 
-.carousel-item {
-  min-width: 100%;
-  height: 400px; /* Fixed carousel height */
-  background-size: contain;
-  background-position: center;
-  object-fit: contain;
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Ensure responsiveness */
+  gap: 20px; /* Spacing between content */
+}
+
+/* Left Side: Image */
+.image-container {
+  flex: 1; /* Takes half the space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  width: 100%;
+  max-width: 500px; /* Control max width of image */
+  height: auto;
+  border-radius: 10px; /* Soft corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Right Side: Content */
+.content-container {
+  flex: 1; /* Takes half the space */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.content-container h2 {
+  font-size: 2rem;
+  color: #3f87a6;
+  margin-bottom: 15px;
+}
+
+.content-container p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack image and content vertically */
+    text-align: center;
+  }
+
+  .content-container {
+    text-align: center;
+  }
 }
 
 /* .overlay-text {
@@ -144,52 +279,116 @@ body {
   padding: 20px;
   border-radius: 10px;
 } */
+/* Section Title Styling */
+.section-title {
+  text-align: center;
+  margin: 40px 0; /* Add space above and below the title section */
+}
 
+.title-container {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Space between the lines and the text */
+}
+
+.title-container h2 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-wrap: pretty;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #3f87a6; /* Title color matching the screenshot */
+  margin: 0;
+}
+
+.title-container .line {
+  flex: 1; /* Lines expand to fill space */
+  height: 3px; /* Line thickness */
+  background-color: #4a7a88; /* Line color */
+  max-width: 100px; /* Control line length */
+}
+
+@media (max-width: 768px) {
+  .title-container {
+    gap: 10px; /* Reduce space on smaller screens */
+  }
+
+  .title-container h2 {
+    font-size: 1.5rem; /* Smaller font size for mobile */
+  }
+
+  .title-container .line {
+    max-width: 50px; /* Shorter lines for smaller screens */
+  }
+}
+
+/* Features Section */
 /* Features Section */
 .features {
   padding: 40px 20px;
+  background: #f5f7fa; /* Light background */
   text-align: center;
+}
+.feature-link {
+  text-decoration: none; /* Remove default underline */
 }
 
 .feature-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
-  gap: 20px; /* Space between items */
-}
-.feature-item {
-  background: linear-gradient(
-    to right,
-    #3f87a6,
-    #7ec8e3
-  ); /* Gradient Background */
-  color: #fff; /* White text for contrast */
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  opacity: 0; /* Initially hidden for scroll animation */
-  transform: translateY(50px);
-  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease; /* Smooth transitions */
-}
-.feature-item.show {
-  opacity: 1;
-  transform: translateY(0); /* Slide into view */
+  grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+  gap: 20px; /* Spacing between cards */
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-/* Hover Effect */
+.feature-item {
+  background: linear-gradient(
+    to bottom,
+    #7ec8e3,
+    #3f87a6
+  ); /* Gradient background */
+  border: 1px solid #7ec8e3; /* Light border */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
 .feature-item:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
-  transform: translateY(-5px); /* Slight lift effect */
+  transform: translateY(-10px); /* Lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.feature-item img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+  object-fit: contain;
 }
 
 .feature-item h2 {
+  font-size: 1.2rem;
+  color: white;
   margin-bottom: 10px;
-  transition: color 0.3s ease; /* Smooth text color transition */
 }
 
 .feature-item p {
-  line-height: 1.4;
-  margin-top: 10px;
+  font-size: 0.95rem;
+  color: black;
+  line-height: 1.6;
 }
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .feature-container {
+    grid-template-columns: 1fr; /* Stack vertically on smaller screens */
+  }
+}
+
 /* Modal Background */
 .modal {
   display: none; /* Initially hidden */
@@ -246,6 +445,123 @@ body {
     transform: scale(1);
     opacity: 1;
   }
+}
+/* Contact Section */
+.contact-section {
+  padding: 40px 20px;
+  text-align: center;
+  background: #f8f9fa; /* Light background */
+}
+
+.contact-section h1 {
+  font-size: 2.5rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+  margin-bottom: 10px;
+  color: #3f87a6; /* Dark blue */
+}
+
+.contact-section p {
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-around;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Contact Form */
+.contact-form {
+  flex: 1;
+  max-width: 500px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #3f87a6;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  display: inline-block;
+  background: #3f87a6;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #0056b3;
+}
+
+/* Contact Details */
+.contact-details {
+  flex: 1;
+  max-width: 400px;
+  text-align: left;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-details h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #3f87a6;
+}
+
+.contact-details p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.contact-details a {
+  color: #3f87a6;
+  text-decoration: none;
+}
+
+.contact-details a:hover {
+  text-decoration: underline;
 }
 
 /* Responsive: Stack features vertically on smaller screens */

@@ -14,6 +14,35 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(() => {
     logo.classList.toggle("bounce");
   }, 5000);
+  // Select the Services toggle link and dropdown menu
+  const servicesToggle = document.getElementById("services-toggle");
+  const servicesDropdown = document.getElementById("services-dropdown");
+
+  // Toggle dropdown visibility
+  servicesToggle.addEventListener("click", (event) => {
+    event.preventDefault(); // Prevent default link behavior
+    servicesDropdown.style.display =
+      servicesDropdown.style.display === "block" ? "none" : "block";
+  });
+
+  // Optional: Close the dropdown if clicking outside of it
+  document.addEventListener("click", (event) => {
+    if (
+      !servicesToggle.contains(event.target) &&
+      !servicesDropdown.contains(event.target)
+    ) {
+      servicesDropdown.style.display = "none";
+    }
+  });
+
+  // Handle clicks on dropdown links for redirection
+  const dropdownLinks = servicesDropdown.querySelectorAll("a");
+  dropdownLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const targetUrl = link.getAttribute("href"); // Get the target page link
+      window.location.href = targetUrl; // Redirect to the page
+    });
+  });
   // Select all links with 'coming-soon' class
   const comingSoonLinks = document.querySelectorAll(".coming-soon");
   const modal = document.getElementById("comingSoonModal");
@@ -38,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       modal.style.display = "none";
     }
   });
+
   // Carousel
   const carouselItems = document.querySelectorAll(".carousel-item");
   let currentIndex = 0;
@@ -75,4 +105,32 @@ document.addEventListener("DOMContentLoaded", () => {
   // Trigger the scroll effect on load and scroll
   window.addEventListener("scroll", checkScroll);
   checkScroll(); // Run once on page load
+
+  // Contact Us Form Submission
+  const contactForm = document.getElementById("contactForm");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent the form from submitting normally
+
+      // Get form values
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      // Form Validation
+      if (!name || !email || !message) {
+        alert("Please fill out all fields before submitting.");
+        return;
+      }
+
+      // Show success message (replace with backend submission if needed)
+      alert(
+        "Thank you, " + name + "! Your message has been sent successfully."
+      );
+
+      // Reset the form fields
+      contactForm.reset();
+    });
+  }
 });
