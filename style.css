@@ -179,30 +179,88 @@ main {
   color: #ffa500;
 }
 
+/* Hamburger Menu */
 .hamburger {
-  display: none;
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
 }
 
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background: linear-gradient(to bottom, #3f87a6, #7ec8e3);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Navigation Menu */
+.nav-list {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+  color: #ffa500;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
   .hamburger {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
+    display: flex; /* Show the hamburger menu icon on smaller screens */
   }
 
   .nav {
-    display: none;
-  }
-
-  .nav.active {
-    display: flex;
+    display: none; /* Hide navigation by default */
     flex-direction: column;
+    align-items: center;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    background: #003366;
+    background-color: #3f87a6; /* Same as header background */
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  .nav.active {
+    display: flex; /* Show the navigation when active */
+  }
+
+  .nav-list {
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .nav-list a {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-size: 1rem;
+    color: white;
+  }
+
+  .nav-list a:hover {
+    background-color: #7ec8e3; /* Highlight background */
+    color: black; /* Text contrast */
+    border-radius: 5px;
   }
 }
 /* Image and Content Section */
