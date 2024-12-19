@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+
     <title>VertexPV Analytics | Home</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -17,21 +19,30 @@
       <nav class="nav">
         <ul class="nav-list">
           <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
           <li class="dropdown">
             <a href="javascript:void(0);" id="services-toggle">
               Services <span class="dropdown-icon">&#9662;</span>
             </a>
             <ul class="dropdown-menu" id="services-dropdown">
-              <li><a href="product-development.html">Product Development</a></li>
-              <li><a href="systems-upgrade.html">Systems Upgrade or Migration</a></li>
+              <li>
+                <a href="product-development.html">Product Development</a>
+              </li>
+              <li>
+                <a href="systems-upgrade.html">Systems Upgrade or Migration</a>
+              </li>
               <li><a href="data-analytics.html">Data Analytics</a></li>
               <li><a href="data-mining.html">Data Mining</a></li>
               <li><a href="custom-reporting.html">Custom Reporting</a></li>
-              <li><a href="vendor-management.html">Vendor Management and Oversight</a></li>
+              <li>
+                <a href="vendor-management.html"
+                  >Vendor Management and Oversight</a
+                >
+              </li>
             </ul>
-          </li>          <li><a href="#" class="coming-soon">Products</a></li>
+          </li>
+          <li><a href="#" class="coming-soon">Products</a></li>
           <li><a href="#" class="coming-soon">News</a></li>
+          <li><a href="#" class="coming-soon">Client Testimonials</a></li>
           <li><a href="#" class="coming-soon">Careers</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
@@ -50,8 +61,8 @@
         <p>We are working on this feature. Stay tuned!</p>
       </div>
     </div>
-     <!-- Contact Us Section -->
-     <main class="contact-section">
+    <!-- Contact Us Section -->
+    <main class="contact-section">
       <h1>Contact Us</h1>
       <p>
         We'd love to hear from you. Reach out to us via the contact form below
@@ -65,15 +76,33 @@
           <form id="contactForm" action="submit.php" method="POST">
             <div class="form-group">
               <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="Enter your name" required />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+                required
+              />
             </div>
             <div class="form-group">
               <label for="email">Your Email</label>
-              <input type="email" id="email" name="email" placeholder="Enter your email" required />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
             </div>
             <div class="form-group">
               <label for="message">Your Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Enter your message"
+                required
+              ></textarea>
             </div>
             <button type="submit" class="submit-btn">Send Message</button>
           </form>
@@ -82,9 +111,13 @@
         <!-- Contact Details -->
         <div class="contact-details">
           <h2>Contact Details</h2>
-          <p><strong>Address:</strong> 123 Health Street, Medical City, NY 10001</p>
-          <p><strong>Email:</strong> <a href="mailto:info@vertexpv.com">info@vertexpv.com</a></p>
-          <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+          <p>
+            <strong>Address:</strong> 43 Kings Hwy Haddonfield, New Jersey 08033
+          </p>
+          <p>
+            <strong>Email:</strong>
+            <a href="mailto:team@vertexpva.com">team@vertexpva.com</a>
+          </p>
           <p><strong>Business Hours:</strong> Mon-Fri, 9AM - 5PM</p>
         </div>
       </div>
@@ -98,7 +131,5 @@
     </footer>
 
     <script src="script.js"></script>
-  </body>
-</html>
   </body>
 </html>
